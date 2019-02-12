@@ -1,0 +1,143 @@
+{% extends "frontend/base.html" %}
+
+{% load static %}
+{% block content %}
+		<!-- PAGE HEADER -->
+		<div class="page-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10 text-center">
+						<div class="author">
+							<img class="author-img center-block" src="{% static 'frontend/img/rakib1.jpg' %}" alt="">
+							<h1 class="text-uppercase">Md. Rakibul Islam</h1>
+							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<ul class="author-social">
+								<li><a href="https://www.facebook.com/rakibprince33"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/t_rakibul"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/rakibprince33/"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="https://www.instagram.com/rakib_prince33/"><i class="fa fa-instagram"></i></a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HEADER -->
+
+
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<div class="col-md-8">
+					<div class="post post-row">
+						<a class="post-img" href="blog-post.html"><img src="{% static 'frontend/img/author_post1.jpg' %}" alt=""></a>
+						<div class="post-body">
+							<div class="post-title">
+								<h3 class="post-title"><a href="blog-post.html">About Rakibul Islam</a></h3>
+							</div>
+							<p>
+							SimpleText
+							SimpleText under the German version of Mac OS 8
+							SimpleText under the German version of Mac OS 8
+							Developer(s)	Apple Computer, now Apple Inc.
+							Stable release
+							1.4
+							Operating system	System 7 – Mac OS 9
+							Type	Text editor
+							License	Proprietary
+							SimpleText is the native text editor for the Apple classic Mac OS.[1] SimpleText allows editing including text formatting (underline, italic, bold, etc.), fonts, and sizes. It was developed to integrate the features included in the different versions of TeachText that were created by various software development groups within Apple.[2]
+
+							It can be considered similar to Windows' WordPad application. In later versions it also gained additional read only display capabilities for PICT files, as well as other Mac OS built-in formats like Quickdraw GX and QTIF, 3DMF and even QuickTime movies.[2] SimpleText can even record short sound samples and, using Apple's PlainTalk speech system, read out text in English. Users who wanted to add sounds longer than 24 seconds, however, needed to use a separate program to create the sound and then paste the desired sound into the document using ResEdit.[2]
+
+							SimpleText superseded TeachText, which was included in System Software up until Mac OS 8. The need for SimpleText arose after Apple stopped bundling MacWrite, to ensure that every user could open and read Readme documents.
+
+							The key improvement of SimpleText over TeachText was the addition of text styling. The underlying OS required by SimpleText implemented a standard styled text format, which meant that SimpleText could support multiple fonts and font sizes. Prior Macintosh OS versions lacked this feature, so TeachText support
+						</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+					<!-- ad widget-->
+					<!--<div class="aside-widget text-center">
+						<a href="#" style="display: inline-block;margin: auto;">
+							<img class="img-responsive" src="./img/ad-3.jpg" alt="">
+						</a>
+					</div>-->
+					<!-- /ad widget -->
+
+					<!-- social widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Social Media</h2>
+						</div>
+						<div class="social-widget">
+							<ul>
+								<li>
+									<a href="https://www.facebook.com/rakibprince33" class="social-facebook">
+										<i class="fa fa-facebook"></i>
+										<span>21.2K<br>Followers</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://twitter.com/t_rakibul" class="social-twitter">
+										<i class="fa fa-twitter"></i>
+										<span>10.2K<br>Followers</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.linkedin.com/in/rakibprince33/" class="social-pinterest">
+										<i class="fa fa-linkedin-square"></i>
+										<span>5K<br>Followers</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- /social widget -->
+
+					<!-- category widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Categories</h2>
+						</div>
+						<div class="category-widget">
+							<ul>
+								<li><a href="#">Lifestyle <span>451</span></a></li>
+								<li><a href="#">Fashion <span>230</span></a></li>
+								<li><a href="#">Technology <span>40</span></a></li>
+								<li><a href="#">Travel <span>38</span></a></li>
+								<li><a href="#">Health <span>24</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /category widget -->
+
+					<!-- newsletter widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Newsletter</h2>
+						</div>
+						<div class="newsletter-widget">
+							<form>
+								<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium.</p>
+								<input class="input" name="newsletter" placeholder="Enter Your Email">
+								<button class="primary-button">Subscribe</button>
+							</form>
+						</div>
+					</div>
+					<!-- /newsletter widget -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+{% endblock %}
