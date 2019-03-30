@@ -5,14 +5,11 @@
     <meta charset="UTF-8">
     <title> {% block head_title %} Blog {% endblock head_title %} </title>
 
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
 
     <link rel="stylesheet" href='{% static "css/base.css" %}' />
     <style>
@@ -44,7 +41,8 @@
 <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
 
 
 <!-- Latest compiled and minified JavaScript -->
@@ -81,7 +79,47 @@ $(document).ready(function(){
     $(".post-detail-item img").each(function(){
         $(this).addClass("img-responsive");
     })
+
+
+    // preview-content
+    var contentInput = $("#id_content");
+    // $("#preview-content").html(marked(contentItem.val()));
+
+
+    function setContent(value){
+        var markedContent = marked(value)
+        $("#preview-content").html(markedContent)
+        $("#preview-content img").each(function(){
+            $(this).addClass("img-responsive")
+        })
+
+    }
+    setContent(contentInput.val())
+
+    contentInput.keyup(function(){
+        var newcontent = $(this).val()
+        setContent(newcontent)
     })
+
+
+
+    // preview-title
+    var titleInput = $("#id_title");
+
+
+    function setTitle(value){
+        $("#preview-title").text(value);
+    }
+    setTitle(titleInput.val())
+
+    titleInput.keyup(function(){
+        var newcontent = $(this).val()
+        setTitle(newcontent)
+    })
+
+
+})
+console.log("Rakibul")
 </script>
 
 </body>

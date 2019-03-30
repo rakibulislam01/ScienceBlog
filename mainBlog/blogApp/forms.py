@@ -4,12 +4,12 @@ from pagedown.widgets import PagedownWidget
 
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(widget=PagedownWidget)
+    content = forms.CharField(widget=PagedownWidget(show_preview=False))
     publish = forms.DateField(widget=forms.SelectDateWidget)
 
     class Meta:
-        model   = Post
-        fields  = [
+        model = Post
+        fields = [
             "title",
             "content",
             "image",
