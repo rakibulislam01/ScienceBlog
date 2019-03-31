@@ -7,11 +7,13 @@ from .models import Post
 from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
 
 
+# @login_required
 def post_create(request):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
