@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # Local app
+    'comments',
     'blogApp',
 ]
 
