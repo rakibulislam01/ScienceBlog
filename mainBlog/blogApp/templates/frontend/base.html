@@ -89,7 +89,9 @@
 						<li><a href="{% url 'about' %}">About Us</a></li>
 						<li><a href="{% url 'contact' %}">Contacts</a></li>
 						<li><a href="{% url 'author' %}">Author</a></li>
-						<li><a href="{% url 'create' %}">Post</a></li>
+						{% if user.is_authenticated %}
+							<li><a href="{% url 'create' %}">Post</a></li>
+                        {% endif %}
 						<li><a href="{% url 'blank' %}">Regular</a></li>
 					</ul>
 					<!-- /nav -->
