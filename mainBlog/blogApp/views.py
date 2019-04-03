@@ -8,13 +8,10 @@ from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from comments.models import Comment
-from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
-
 # @login_required
 def post_create(request):
     if not request.user.is_staff or not request.user.is_superuser:
@@ -51,9 +48,7 @@ def post_detail(request, id):
             raise Http404
     # instance = Post.objects.get(id = 1)
     share_string = quote_plus(instance.content)
-    content_type = ContentType.objects.get_for_model(Post)
-    obj_id = instance.id
-    comments = Comment.objects.filter(content_type=content_type, object_id=obj_id)
+    comments = Comment.objects.filter_by_instance(instance)
     context = {
         "title": instance.title,
         "instance": instance,

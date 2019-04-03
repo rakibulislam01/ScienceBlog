@@ -6,7 +6,7 @@ from django.utils.text import slugify
 from django.conf import settings
 from markdown_deux import markdown
 from django.utils.safestring import mark_safe
-
+from comments.models import Comment
 
 # Create your models here.
 
@@ -57,6 +57,12 @@ class Post(models.Model):
 
     class Meta:
         ordering = ["-timestamp", "-updated"]
+
+    @property
+    def comments(self):
+        instance = self
+        qs = Comment.objects.filter_by_instance(instance)
+        return qs
 
 
 def create_slug(instance, new_slug=None):
