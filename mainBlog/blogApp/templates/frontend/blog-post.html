@@ -14,8 +14,6 @@
     					{% endif %}
 			-->
 
-			<!--<div class="page-header-bg" style="background-image: url('./img/header-1.jpg');" data-stellar-background-ratio="0.5"></div>-->
-
 			<div class="page-header-bg" style="background-image: {% if instance.image %} url('{{instance.image.url}}') {% endif %};" data-stellar-background-ratio="0.5"></div>
 
 			<div class="container">
@@ -95,13 +93,6 @@
 								<a class="post-img" href="{{previous_id.post_detail_url}}"> {% if previous_id.image %} <img src="{{ previous_id.image.url}}" alt=""> {% endif %}</a>
 								<h3 class="post-title"><a href="{{previous_id.post_detail_url}}">{{previous_id.title}}</a></h3>
 
-                                  <!--  {% if post.get_pre_post_url %}
-                                     <a class="pre" href="{{ post.get_pre_post_url }}">{{ post.get_pre_post_title }}</a>
-                                     {%endif%}
-                                     {% if post.get_next_post_url %}
-                                     <a class="next" href="{{ post.get_next_post_url }}">{{ post.get_next_post_title }}</a>
-                                     {% endif %}
--->
 								<span>Previous post</span>
 
 							</div>

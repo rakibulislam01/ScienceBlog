@@ -8,6 +8,8 @@ from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from comments.models import Comment
+from comments.forms import CommentForm
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 
 
@@ -48,12 +50,34 @@ def post_detail(request, id):
             raise Http404
     # instance = Post.objects.get(id = 1)
     share_string = quote_plus(instance.content)
+
+    initial_data = {
+        "content_type": instance.get_content_type,
+        "object_id": instance.id,
+    }
+
+    form = CommentForm(request.POST or None, initial=initial_data)
+    if form.is_valid():
+        c_type = form.cleaned_data.get("content_type")
+        content_type = ContentType.objects.get(model=c_type)
+        obj_id = form.cleaned_data.get("object_id")
+        content_data = form.cleaned_data.get("content")
+
+        new_comment, created = Comment.objects.get_or_create(
+            user=request.user,
+            content_type=content_type,
+            object_id=obj_id,
+            content=content_data
+        )
+        if created:
+            print("It worked!")
     comments = Comment.objects.filter_by_instance(instance)
     context = {
         "title": instance.title,
         "instance": instance,
         "share_string": share_string,
         "comments": comments,
+        "comment_form": form,
     }
     return render(request, "post_detail.html", context)
 
@@ -157,7 +181,7 @@ def index(request):
 
     recent = instance[0:4]
 
-    print("old_post", old_post)
+    # print("old_post", old_post)
     context = {
         "obj": obj,
         "obj1": obj1,

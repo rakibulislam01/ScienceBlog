@@ -54,16 +54,18 @@
             <hr/>
             <br/>
             <div>
-<!--                {{ instance.comment_set.all }}-->
                 <p class="lead">Comments</p>
+                <form method="POST" action="."> {% csrf_token %}
+                    {{ comment_form }}
+                    <input type="submit" value="Post Comment" class="btn btn-default">
+                </form>
                 {% for comment in comments %}
-
                     <blockquote>
                         <p>{{ comment.content }}</p>
                         <footer>via {{ comment.user }} | {{ comment.timestamp | timesince}} ago</footer>
                     </blockquote>
                 <hr/>
-                {% endfor%}
+                {% endfor %}
             </div>
 <!--            <div class="fb-comments" data-href="{{request.build_absolute_uri}}" data-numposts="5"></div>-->
         </div>

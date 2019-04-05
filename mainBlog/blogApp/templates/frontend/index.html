@@ -184,45 +184,7 @@
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-
-			<!-- /row -->
-
-			<!-- row -->
 			<div class="row">
-
-				<!--#################################################-->
-				<!-- row
-					<div class="row">
-						<div class="col-md-12">
-							<div class="section-title">
-								<h2 class="title">Recent posts</h2>
-							</div>
-						</div>
-
-						{% for b_post in instance %}
-						 post
-						<div class="col-md-3">
-							<div class="post">
-								<a class="post-img" href="{{b_post.post_detail_url}}"> {% if b_post.image %}<img src="{{ b_post.image.url }}" alt=""> {% endif %}</a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="{{b_post.post_detail_url}}">Travel</a>
-									</div>
-									<h3 class="post-title"><a href="{{b_post.post_detail_url}}">{{b_post.title}}</a></h3>
-									<ul class="post-meta">
-										<li><a href="{% url 'author' %}">{{b_post.user.get_full_name}}</a></li>
-										<li>{{ b_post.publish }}</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						 /post
-						<div class="clearfix visible-md visible-lg"></div>
-						{% endfor %}
-
-					</div>
-					 /row -->
-					<!-- row -->
 					<div class="row">
 						<div class="col-md-12">
 							<div class="section-title">
@@ -265,32 +227,6 @@
 	<div class="section">
 		<!-- container -->
 		<div class="container">
-			<!-- row -->
-			<!--<div class="row">
-				<div class="col-md-8">
-					&lt;!&ndash; post &ndash;&gt;
-
-					<div class="section-row loadmore text-center">
-						<a href="#" class="primary-button">Load More</a>
-					</div>
-
-				</div>
-				<div class="col-md-4">
-					&lt;!&ndash; galery widget &ndash;&gt;
-
-					&lt;!&ndash; /galery widget &ndash;&gt;
-&lt;!&ndash;
-					 Ad widget
-					<div class="aside-widget text-center">
-						<a href="#" style="display: inline-block;margin: auto;">
-							<img class="img-responsive" src="./img/ad-1.jpg" alt="">
-						</a>
-					</div>
-					 /Ad widget
-					&ndash;&gt;
-				</div>
-			</div>-->
-			<!-- /row -->
 		</div>
 		<!-- /container -->
 	</div>
