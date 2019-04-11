@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('admin/', admin.site.urls),
     path('blogApp/', include('blogApp.urls')),
+    path('comments/', include('comments.urls')),
     # url(r'^reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
 
 ]

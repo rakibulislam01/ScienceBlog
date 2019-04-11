@@ -1,0 +1,255 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+
+<title> {% block head_title %} {{ block.super }} | {{instance.title}} {% endblock head_title %} </title>
+
+{% block content %}
+
+			<!-- PAGE HEADER -->
+		<div id="post-header" class="page-header">
+
+			<!--
+				       {% if instance.image %}
+    						<img src='{{instance.image.url}}' class='img-responsive'/>
+    					{% endif %}
+			-->
+
+			<div class="page-header-bg" style="background-image: {% if instance.image %} url('{{instance.image.url}}') {% endif %};" data-stellar-background-ratio="0.5"></div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<div class="post-category">
+							<a href="">Technology</a>
+						</div>
+						<h1>{{instance.title}}</h1>
+						<ul class="post-meta">
+							<li><a href="{% url 'author' %}">{{instance.user.get_full_name}}</a></li>
+							<li>{{ instance.publish }}</li>
+							<li><i class="fa fa-comments"></i> 3</li>
+							<li><i class="fa fa-eye"></i> 807</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HEADER -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-8">
+					<!-- post share -->
+					<div class="section-row">
+						<div class="post-share">
+							<!--<a href="{{request.build_absolute_uri}}" class="social-facebook"><i class="fa fa-facebook"></i><span>Share</span></a>-->
+							<div class="fb-share-button" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="{{request.build_absolute_uri}}" class="fb-xfbml-parse-ignore">Share</a></div>
+							<a href="#" class="social-twitter"><i class="fa fa-twitter"></i><span>Tweet</span></a>
+							<a href="#" class="social-pinterest"><i class="fa fa-pinterest"></i><span>Pin</span></a>
+							<a href="#" ><i class="fa fa-envelope"></i><span>Email</span></a>
+						</div>
+					</div>
+					<!-- /post share -->
+
+					<!-- post content -->
+					<div class="section-row">
+						<h3>{{title}}</h3>
+						{% if instance.image %}
+						<figure class="pull-right">
+
+    								<img src='{{instance.image.url}}' class='img-responsive'/>
+
+							<figcaption>{{instance.title}}</figcaption>
+						</figure>
+						{% endif %}
+
+						<p>{{instance.content | linebreaks}}</p>
+
+					</div>
+					<!-- /post content -->
+
+					<!-- post tags -->
+					<div class="section-row">
+						<div class="post-tags">
+							<ul>
+								<li>TAGS:</li>
+								<li><a href="#">Social</a></li>
+								<li><a href="#">Lifestyle</a></li>
+								<li><a href="#">Fashion</a></li>
+								<li><a href="#">Health</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /post tags -->
+
+					<!-- post nav -->
+					<div class="section-row">
+						<div class="post-nav">
+							<div class="prev-post">
+
+								<a class="post-img" href="{{previous_id.post_detail_url}}"> {% if previous_id.image %} <img src="{{ previous_id.image.url}}" alt=""> {% endif %}</a>
+								<h3 class="post-title"><a href="{{previous_id.post_detail_url}}">{{previous_id.title}}</a></h3>
+
+								<span>Previous post</span>
+
+							</div>
+
+							<div class="next-post">
+								<a class="post-img" href="{{next_id.post_detail_url}}">{% if next_id.image %} <img src="{{ next_id.image.url}}" alt=""> {% endif %}</a>
+								<h3 class="post-title"><a href="{{next_id.post_detail_url}}">{{next_id.title}}</a></h3>
+								<span>Next post</span>
+							</div>
+						</div>
+					</div>
+					<!-- /post nav  -->
+
+					<!-- post author -->
+					<div class="section-row">
+						<div class="section-title">
+							<h3 class="title">About <a href="{% url 'author' %}">Rakibul</a></h3>
+						</div>
+						<div class="author media">
+							<div class="media-left">
+								<a href="{% url 'author' %}">
+									<img class="author-img media-object" src="{% static 'frontend/img/rakib1.jpg' %}" alt="">
+								</a>
+							</div>
+							<div class="media-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								<ul class="author-social">
+									<li><a href="https://www.facebook.com/rakibprince33"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="https://twitter.com/t_rakibul"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="https://www.linkedin.com/in/rakibprince33/"><i class="fa fa-linkedin-square"></i></a></li>
+									<li><a href="https://www.instagram.com/rakib_prince33/"><i class="fa fa-instagram"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /post author -->
+
+					<!-- Facebook comments -->
+					<p>
+        				<div class="fb-like" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    					<hr/>
+    				</p>
+					<div class="fb-comments" data-href="{{request.build_absolute_uri}}" data-numposts="5"></div>
+
+					<!-- /Facebook comments -->
+
+				</div>
+				<div class="col-md-4">
+					<!-- ad widget -->
+					<div class="aside-widget text-center">
+						<a href="#" style="display: inline-block;margin: auto;">
+							<img class="img-responsive" src="./img/ad-3.jpg" alt="">
+						</a>
+					</div>
+					<!-- /ad widget -->
+
+					<!-- social widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Social Media</h2>
+						</div>
+						<div class="social-widget">
+							<ul>
+								<li>
+									<a href="https://www.facebook.com/rakibprince33" class="social-facebook">
+										<i class="fa fa-facebook"></i>
+										<span>21.2K<br>Followers</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://twitter.com/t_rakibul" class="social-twitter">
+										<i class="fa fa-twitter"></i>
+										<span>10.2K<br>Followers</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.linkedin.com/in/rakibprince33/" class="social-pinterest">
+										<i class="fa fa-linkedin-square"></i>
+										<span>5K<br>Followers</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- /social widget -->
+
+					<!-- category widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Categories</h2>
+						</div>
+
+						<div class="category-widget">
+							<ul>
+								<li><a href="{% url 'category' %}">Category<span></span></a></li>
+								<li><a href="{% url 'author' %}">Author<span></span></a></li>
+								<li><a href="{% url 'contact' %}">Contact<span></span></a></li>
+								<li><a href="{% url 'create' %}">Create<span></span></a></li>
+
+							</ul>
+						</div>
+
+					</div>
+					<!-- /category widget -->
+
+					<!-- newsletter widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Newsletter</h2>
+						</div>
+						<div class="newsletter-widget">
+							<form>
+								<p>Learn something new every week. Subscribe Now!</p>
+								<input class="input" placeholder="Enter Your Email">
+								<button class="primary-button">Subscribe</button>
+							</form>
+						</div>
+					</div>
+					<!-- /newsletter widget -->
+
+					<!-- post widget -->
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2 class="title">Popular Posts</h2>
+						</div>
+						{% for recent in recent %}
+						<!-- post -->
+						<div class="post post-widget">
+							<a class="post-img" href="{{ recent.post_detail_url }}"><img src="{{ recent.image.url }}" height="80px" width="180px" alt=""></a>
+							<div class="post-body">
+								<div class="post-category">
+									<a href="{{recent.post_detail_url}}">Travel</a>
+								</div>
+								<h3 class="post-title"><a href="{{recent.post_detail_url}}">{{recent.title | truncatechars:40}}</a></h3>
+							</div>
+						</div>
+						<!-- /post -->
+						{% endfor %}
+						 <!--post-->
+
+					</div>
+					<!-- /post widget -->
+
+
+					<!-- Ad widget -->
+					<div class="aside-widget text-center">
+						<a href="#" style="display: inline-block;margin: auto;">
+							<img class="img-responsive" src="./img/ad-1.jpg" alt="">
+						</a>
+					</div>
+					<!-- /Ad widget -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+{% endblock %}
