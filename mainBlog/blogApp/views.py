@@ -1,12 +1,15 @@
-from urllib.parse import quote_plus
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.utils import timezone
 from django.db.models import Q
-from .models import Post
-from .forms import PostForm
 from django.contrib import messages
 from django.core.paginator import Paginator
+from urllib.parse import quote_plus
+
+from .models import Post
+from .forms import PostForm
+from .utils import get_read_time
+
 from comments.models import Comment
 from comments.forms import CommentForm
 from django.contrib.contenttypes.models import ContentType
@@ -50,7 +53,8 @@ def post_detail(request, id):
             raise Http404
     # instance = Post.objects.get(id = 1)
     share_string = quote_plus(instance.content)
-
+    # print(get_read_time(instance.content))
+    print("time",get_read_time(instance.get_markdown()))
     initial_data = {
         "content_type": instance.get_content_type,
         "object_id": instance.id,
