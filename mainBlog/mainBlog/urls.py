@@ -20,12 +20,17 @@ from django.conf import urls
 from django.conf import settings
 from django.conf.urls.static import static
 from blogApp import views
+from accounts.views import (login_view,
+                            register_view,
+                            logout_view)
 
 urlpatterns = [
     path('', views.index, name="index"),
     path('admin/', admin.site.urls),
     path('blogApp/', include('blogApp.urls')),
     path('comments/', include('comments.urls')),
+    # url(r'^login/', login_view, name='login'),
+    path('login/', login_view, name='login'),
     # url(r'^reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
 
 ]
