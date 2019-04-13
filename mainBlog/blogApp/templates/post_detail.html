@@ -17,6 +17,7 @@
     {% endif %}
     <h1>{{title}} <small>{% if instance.draft %} <span style='color:red;'>Draft</span> {% endif %}  {{ instance.publish}}</small></h1>
 
+    <p>Read time: {{instance.read_time | time:"i"}} min</p>
     {% if instance.user.get_full_name %}
         <p>Author: {{instance.user.get_full_name}}</p>
     {% endif %}
