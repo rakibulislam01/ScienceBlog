@@ -31,6 +31,7 @@ urlpatterns = [
     path('comments/', include('comments.urls')),
     # url(r'^login/', login_view, name='login'),
     path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout')
     # url(r'^reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
 
 ]
