@@ -25,15 +25,15 @@ from accounts.views import (login_view,
                             logout_view)
 
 urlpatterns = [
-    path('', views.index, name="index"),
     path('admin/', admin.site.urls),
     path('blogApp/', include('blogApp.urls')),
     path('comments/', include('comments.urls')),
     # url(r'^login/', login_view, name='login'),
     path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
+    path('register', register_view, name='register'),
     # url(r'^reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
-
+    path('', views.post_list, name="posts"),
 ]
 
 if settings.DEBUG:
