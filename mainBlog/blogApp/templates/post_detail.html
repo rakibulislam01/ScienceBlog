@@ -10,6 +10,10 @@
         {% endblock style %}
     </style>
 
+    {% block post_detail_link %}
+        <li><a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></li>
+    {% endblock %}
+
 {% block content %}
 <div class='col-sm-8 col-sm-offset-2'>
     {% if instance.image %}
